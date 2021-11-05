@@ -11,9 +11,6 @@ services:
   # MONGO DATABASE
   mongodb:
     image: mongo
-    # environment:
-    #   - MONGO_INITDB_ROOT_USERNAME=username
-    #   - MONGO_INITDB_ROOT_PASSWORD=password
     env_file:
       - ./.env
     volumes:
