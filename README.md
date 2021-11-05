@@ -1,5 +1,5 @@
 # SERVER EXPRESS
-Simple node express server
+Simple node express server running on a docker container
 
 ## Packages
 - express
