@@ -7,19 +7,17 @@ const mongoose = require('mongoose');
 
 const cors = require('cors');
 const routers = require('./routers');
+const { MONGO_IP, MONGO_PORT } = require('./config/config');
 
 // Creates express app
 const app = express();
 
 // Connect mongo db
-mongoose.connect(
-  // "mongodb://username:password@172.25.0.2:27017/?authSource=admin"
-
-  // If service setup in docker-compose
-  "mongodb://username:password@mongodb:27017/?authSource=admin"
-).then(() => {
-  console.log("Connected to mongo database !");
-}).catch((err) => console.log(err));
+const mongoUrl = `mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@${MONGO_IP}:${MONGO_PORT}/?authSource=admin`
+mongoose
+  .connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log("Connected to mongo database !"))
+  .catch((err) => console.log(err));
 
 // App init
 app.use(express.json());
