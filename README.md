@@ -35,4 +35,4 @@ Simple node express server running on a docker container with a mongo database r
 <kbd>docker logs [server-container-name-1] (-f)</kbd>
 
 ### Connect to mongo database
-<kbd>docker exec -it [mongodb-container-name-1] [image] -u "username" -p "password"</kbd>
+<kbd>docker exec -it [mongodb-container-name-1] mongo -u "username" -p "password"</kbd>
